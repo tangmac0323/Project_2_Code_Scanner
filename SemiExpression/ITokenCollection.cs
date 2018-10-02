@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tokenizer
+namespace SemiExpression
 {
-    class WhiteSpaceState
+    interface ITokenCollection
     {
     }
 }

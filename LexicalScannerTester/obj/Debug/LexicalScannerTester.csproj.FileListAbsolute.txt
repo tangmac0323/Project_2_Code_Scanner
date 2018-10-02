@@ -1,0 +1,2 @@
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\LexicalScannerTester\obj\Debug\LexicalScannerTester.csprojResolveAssemblyReference.cache
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\LexicalScannerTester\obj\Debug\LexicalScannerTester.csproj.CoreCompileInputs.cache

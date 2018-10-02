@@ -1,0 +1,6 @@
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\Tokenizer\obj\Debug\Tokenizer.csproj.CoreCompileInputs.cache
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\Tokenizer\bin\Debug\Tokenizer.exe.config
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\Tokenizer\bin\Debug\Tokenizer.exe
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\Tokenizer\bin\Debug\Tokenizer.pdb
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\Tokenizer\obj\Debug\Tokenizer.exe
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\Tokenizer\obj\Debug\Tokenizer.pdb

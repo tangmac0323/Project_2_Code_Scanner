@@ -11,7 +11,7 @@ namespace Tokenizer
         internal TokenContext()
         {
             whiteSpaceState_ = new WhiteSpaceState(this);
-            puncState_ = new PunctState(this);
+            puncState_ = new PuncState(this);
             alphaState_ = new AlphaState(this);
             specialPuncState_ = new SpecialPuncState(this);
             dQuoteState_ = new DoubleQuoteState(this);
@@ -24,9 +24,13 @@ namespace Tokenizer
             currentState_ = whiteSpaceState_;
         }
         internal WhiteSpaceState whiteSpaceState_ { get; set; }
-        internal PunctState puncState_ { get; set; }
+        internal PuncState puncState_ { get; set; }
         internal AlphaState alphaState_ { get; set; }
-        // more states here
+        internal SpecialPuncState specialPuncState_ { get; set; }
+        internal DoubleQuoteState dQuoteState_ { get; set; }
+        internal SingleQuoteState sQuoteState_ { get; set; }
+        internal CCommentState cCommentState_ { get; set; }
+        internal CppCommentState cppCommentState_ { get; set; }
 
         internal TokenState currentState_ { get; set; }
         internal ITokenSourceInterface src { get; set; }  // can hold any derived class

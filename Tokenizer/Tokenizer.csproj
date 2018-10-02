@@ -35,7 +35,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StatePattern\AlphaState.cs" />
+    <Compile Include="StatePattern\CCommentState.cs" />
+    <Compile Include="StatePattern\CppCommentState.cs" />
+    <Compile Include="StatePattern\DoubleQuoteState.cs" />
+    <Compile Include="ITokenSourceInterface.cs" />
+    <Compile Include="ITokenStateInterface.cs" />
+    <Compile Include="StatePattern\PuncState.cs" />
+    <Compile Include="StatePattern\SingleQuoteState.cs" />
+    <Compile Include="StatePattern\SpecialPuncState.cs" />
+    <Compile Include="TokenContext.cs" />
+    <Compile Include="TokenSourceFile.cs" />
+    <Compile Include="TokenState.cs" />
     <Compile Include="Toker.cs" />
+    <Compile Include="TokerTest.cs" />
+    <Compile Include="StatePattern\WhiteSpaceState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
