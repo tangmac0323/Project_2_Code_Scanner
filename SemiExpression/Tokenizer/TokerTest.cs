@@ -31,7 +31,6 @@ namespace Tokenizer
             toker.close();
             return true;
         }
-        
         /*
         static void Main(string[] args)
         {

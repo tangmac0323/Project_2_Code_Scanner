@@ -6,33 +6,30 @@ using System.Threading.Tasks;
 
 namespace Tokenizer
 {
-    class CCommentState : TokenState
+    class AlphaState : TokenState
     {
-        public CCommentState(TokenContext context)
+        public AlphaState(TokenContext context)
         {
             context_ = context;
         }
         //----< manage converting extracted ints to chars >--------------
 
-        bool isCCommentEnd(int i)
+        bool isLetterOrDigit(int i)
         {
-            // peek the first character in the remained line buffer
-            int nextItem1 = context_.src.peek();
-            if (nextItem1 < 0)
-            {
+            int nextItem = context_.src.peek();
+            if (nextItem < 0)
                 return false;
-            }
-            char ch1 = (char)nextItem1;
-
-            return ch1.Equals('\n');
+            char ch = (char)nextItem;
+            return Char.IsLetterOrDigit(ch);
         }
+        //----< keep extracting until get none-alpha >-------------------
 
         override public StringBuilder getTok()
         {
             StringBuilder tok = new StringBuilder();
-            tok.Append((char)context_.src.next()); 
+            tok.Append((char)context_.src.next());          // first is alpha
 
-            while (!isCCommentEnd(context_.src.peek()))    // stop when new line
+            while (isLetterOrDigit(context_.src.peek()))    // stop when non-alpha
             {
                 tok.Append((char)context_.src.next());
             }
@@ -40,4 +37,3 @@ namespace Tokenizer
         }
     }
 }
-

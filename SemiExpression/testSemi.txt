@@ -1,11 +1,3 @@
-﻿/*
-
-fdsfdsfdsfs
-
-*/
-
-  temp.Append();  // line of scope start
-
 {
   StringBuilder temp = new StringBuilder();
   temp.Append("{");
@@ -29,9 +21,3 @@ for(int i=0; i<4; ++i)
   for(int j=0; j<5; ++j)
     for(int k=0; k<2; ++k)
       p = i*j*k;
-
-/*
-
-fdsfdsfdsfs
-
-*/

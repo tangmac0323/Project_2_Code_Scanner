@@ -8,5 +8,6 @@ namespace SemiExpression
 {
     interface ITokenCollection
     {
+        SemiExp get();
     }
 }

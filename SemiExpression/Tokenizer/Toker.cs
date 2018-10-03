@@ -79,8 +79,6 @@ namespace Tokenizer
                 return true;
             return context_.currentState_.isDone();
         }
-
-
         public int lineCount() { return context_.src.lineCount; }
 
     }

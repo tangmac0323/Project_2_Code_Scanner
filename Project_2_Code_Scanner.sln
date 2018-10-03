@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tokenizer", "Tokenizer\Tokenizer.csproj", "{7B036E14-0274-4C9F-ADDE-C10544C0E255}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemiExpression", "SemiExpression\SemiExpression.csproj", "{ACAAFF2A-A093-4F76-AB38-5A99AF2296AA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B036E14-0274-4C9F-ADDE-C10544C0E255} = {7B036E14-0274-4C9F-ADDE-C10544C0E255}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexicalScannerTester", "LexicalScannerTester\LexicalScannerTester.csproj", "{BED27640-341B-4CC0-8FF5-F506DF4FBB74}"
 EndProject

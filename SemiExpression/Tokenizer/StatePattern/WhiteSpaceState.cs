@@ -6,33 +6,30 @@ using System.Threading.Tasks;
 
 namespace Tokenizer
 {
-    class CCommentState : TokenState
+    class WhiteSpaceState : TokenState
     {
-        public CCommentState(TokenContext context)
+        public WhiteSpaceState(TokenContext context)
         {
             context_ = context;
         }
         //----< manage converting extracted ints to chars >--------------
 
-        bool isCCommentEnd(int i)
+        bool isWhiteSpace(int i)
         {
-            // peek the first character in the remained line buffer
-            int nextItem1 = context_.src.peek();
-            if (nextItem1 < 0)
-            {
+            int nextItem = context_.src.peek();
+            if (nextItem < 0)
                 return false;
-            }
-            char ch1 = (char)nextItem1;
-
-            return ch1.Equals('\n');
+            char ch = (char)nextItem;
+            return Char.IsWhiteSpace(ch);
         }
+        //----< keep extracting until get none-whitespace >--------------
 
         override public StringBuilder getTok()
         {
             StringBuilder tok = new StringBuilder();
-            tok.Append((char)context_.src.next()); 
+            tok.Append((char)context_.src.next());     // first is WhiteSpace
 
-            while (!isCCommentEnd(context_.src.peek()))    // stop when new line
+            while (isWhiteSpace(context_.src.peek()))  // stop when non-WhiteSpace
             {
                 tok.Append((char)context_.src.next());
             }
@@ -40,4 +37,3 @@ namespace Tokenizer
         }
     }
 }
-
