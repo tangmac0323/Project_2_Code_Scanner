@@ -38,8 +38,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SemiExpression\SemiExpression.cs" />
-    <Compile Include="SemiExpression\SemiExpTest.cs" />
+    <Compile Include="SemiExpression.cs" />
+    <Compile Include="SemiExpTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="testSemi.txt" />

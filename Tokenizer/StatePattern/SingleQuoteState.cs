@@ -28,10 +28,14 @@ namespace Tokenizer
         {
             StringBuilder tok = new StringBuilder();
 
-            while (isPairedSingleQuote(context_.src.peek()))
+            tok.Append((char)context_.src.next());
+
+            while (!isPairedSingleQuote(context_.src.peek()))
             {
                 tok.Append((char)context_.src.next());
             }
+
+            tok.Append((char)context_.src.next());
             return tok;
         }
     }

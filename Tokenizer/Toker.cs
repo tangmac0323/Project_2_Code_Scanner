@@ -76,8 +76,16 @@ namespace Tokenizer
         public bool isDone()
         {
             if (context_.currentState_ == null)
+            {
                 return true;
-            return context_.currentState_.isDone();
+            }
+            else
+            {
+                return false;
+            }
+
+
+            //return context_.currentState_.isDone();
         }
 
 

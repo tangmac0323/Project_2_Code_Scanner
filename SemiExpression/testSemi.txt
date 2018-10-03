@@ -5,6 +5,14 @@
   return temp.ToString();
 }
 
+'abvcddsfs'
+
+abc
+
+
+"nihao"
+
+
 int i;
 // a C++ comment
 double d;

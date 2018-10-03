@@ -57,6 +57,7 @@ namespace Tokenizer
 
             tok.Append((char)context_.src.next());  // read in the last element
             tok.Append((char)context_.src.next());  // read in the last element
+
             return tok;
         }
     }

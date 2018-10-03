@@ -315,7 +315,7 @@ namespace SemiExpression
 
             if (semiExp.Contains("for"))
             {
-                SemiExp se = clone();
+                SemiExp se = clone();       // make a copy of the semiExp
                 getSemi();                  // note recursive call
                 se.Add(semiExp.ToArray());
                 getSemi();

@@ -5,6 +5,6 @@ D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_S
 D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\bin\Debug\SemiExpression.exe
 D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\obj\Debug\SemiExpression.exe
 D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\obj\Debug\SemiExpression.csprojResolveAssemblyReference.cache
-D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\bin\Debug\Tokenizer.pdb
 D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\bin\Debug\Tokenizer.exe
 D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\bin\Debug\Tokenizer.exe.config
+D:\Syracuse_University\CIS_681\Project_2\Project_2_Code_Scanner\Project_2_Code_Scanner\SemiExpression\bin\Debug\Tokenizer.pdb

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Tokenizer
 {
@@ -13,7 +9,6 @@ namespace Tokenizer
             context_ = context;
         }
         //----< manage converting extracted ints to chars >--------------
-
 
         bool isPairedDoubleQuote(int i)
         {
