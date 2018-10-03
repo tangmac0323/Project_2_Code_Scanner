@@ -36,6 +36,7 @@ namespace Tokenizer
             {
                 tok.Append((char)context_.src.next());
             }
+            //tok.Append((char)context_.src.next());      // read the new line mark
             return tok;
         }
     }

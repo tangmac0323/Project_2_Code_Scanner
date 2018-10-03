@@ -7,7 +7,7 @@ namespace Tokenizer
 {
     ///////////////////////////////////////////////////////////////////////
     // class Toker - Tokenizer
-    class Toker
+    public class Toker
     {
         private TokenContext context_;       // holds single instance of all states and token source
         //private bool keepComment = false;       // switch to keep or discard comment

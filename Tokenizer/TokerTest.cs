@@ -32,7 +32,7 @@ namespace Tokenizer
             return true;
         }
         
-        /*
+        
         static void Main(string[] args)
         {
             Console.Write("\n  Demonstrate Toker class");
@@ -56,6 +56,6 @@ namespace Tokenizer
 
             Console.Write("\n\n");
         }
-        */
+        
     }
 }

@@ -31,32 +31,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITokenCollection.cs" />
-    <Compile Include="SemiExpression.cs" />
-    <Compile Include="SemiExpTest.cs" />
-    <Compile Include="Tokenizer\ITokenSourceInterface.cs" />
-    <Compile Include="Tokenizer\ITokenStateInterface.cs" />
-    <Compile Include="Tokenizer\StatePattern\AlphaState.cs" />
-    <Compile Include="Tokenizer\StatePattern\CCommentState.cs" />
-    <Compile Include="Tokenizer\StatePattern\CppCommentState.cs" />
-    <Compile Include="Tokenizer\StatePattern\DoubleQuoteState.cs" />
-    <Compile Include="Tokenizer\StatePattern\PuncState.cs" />
-    <Compile Include="Tokenizer\StatePattern\SingleQuoteState.cs" />
-    <Compile Include="Tokenizer\StatePattern\SpecialPuncState.cs" />
-    <Compile Include="Tokenizer\StatePattern\WhiteSpaceState.cs" />
-    <Compile Include="Tokenizer\TokenContext.cs" />
-    <Compile Include="Tokenizer\TokenSourceFile.cs" />
-    <Compile Include="Tokenizer\TokenState.cs" />
-    <Compile Include="Tokenizer\Toker.cs" />
-    <Compile Include="Tokenizer\TokerTest.cs" />
+    <Compile Include="SemiExpression\SemiExpression.cs" />
+    <Compile Include="SemiExpression\SemiExpTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="testSemi.txt" />
-    <Content Include="Tokenizer\Test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tokenizer\Tokenizer.csproj">
+      <Project>{7b036e14-0274-4c9f-adde-c10544c0e255}</Project>
+      <Name>Tokenizer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

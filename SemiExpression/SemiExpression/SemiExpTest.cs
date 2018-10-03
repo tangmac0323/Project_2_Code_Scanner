@@ -21,7 +21,12 @@ namespace SemiExpression
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
             while (test.getSemi())
-                test.display();
+            {
+                if (test.displayStr() != "")
+                {
+                    test.display();
+                }
+            }
 
             test.initialize();
             test.insert(0, "this");

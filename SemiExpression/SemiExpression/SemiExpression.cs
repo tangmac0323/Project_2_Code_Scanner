@@ -139,6 +139,7 @@ namespace SemiExpression
             discardComments = true;  // not implemented yet
             returnNewLines = true;
             displayNewLines = false;
+            discardComments = true;
         }
 
         //----< test for equality >------------------------------------------
@@ -219,7 +220,9 @@ namespace SemiExpression
             prevTok = currTok;
             currTok = toker.getTok().ToString();
             if (verbose)
+            {
                 Console.Write("{0} ", currTok);
+            }
             return currTok;
         }
         //----< is this character a punctuator> >----------------------------
@@ -240,7 +243,7 @@ namespace SemiExpression
         {
             string[] opers = new string[]
             {
-        "/*", "*/", "//", "!=", "==", ">=", "<=", "&&", "||", "--", "++",
+        "!=", "==", ">=", "<=", "&&", "||", "--", "++",
         "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>",
         "\\n", "\\t", "\\r", "\\f"
             };
@@ -278,11 +281,33 @@ namespace SemiExpression
             do
             {
                 get();
+
+                // check if end of line
                 if (currTok == "")
+                {
                     return false;  // end of file
-                if (returnNewLines || currTok != "\n")
+                }
+
+                // check if comment
+                if (!discardComments && isComment(currTok))
+                {
                     semiExp.Add(currTok);
-            } while (!isTerminator(currTok) || count == 0);
+                    //break;
+                }
+                else if (discardComments && isComment(currTok))
+                {
+                    //semiExp.Add(currTok);
+                    return true;
+                }
+                else if (returnNewLines || currTok != "\n")
+                {
+                    semiExp.Add(currTok);
+                }
+                else
+                {
+                    break;
+                }
+            } while (!isTerminator(currTok) || count == 0 );
 
             // if for then append next two semiExps, e.g., for(int i=0; i<se.count; ++i) {
 
