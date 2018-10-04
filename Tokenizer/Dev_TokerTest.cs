@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Tokenizer
 {
 
-    class TokerTest
+    class Dev_TokerTest
     {
         static bool testToker(string path)
         {

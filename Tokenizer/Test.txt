@@ -1,1 +1,3 @@
-﻿{p = i*j*k;}
+﻿#ifdenf
+adsadsads
+#endif

@@ -117,7 +117,7 @@ namespace SemiExpression
     ///////////////////////////////////////////////////////////////////////
     // class SemiExp - filters token stream and collects semiExpressions
 
-    public class SemiExp
+    public class SemiExp : ITokenCollection
     {
         Toker toker = null;
         List<string> semiExp = null; // this is a trailing comment
@@ -197,6 +197,9 @@ namespace SemiExpression
         {
             toker.close();
         }
+
+        //----< extract the whole line if start with using or # >------
+
         //----< is this the last token in the current semiExpression? >------
 
         bool isTerminator(string tok)
@@ -218,7 +221,16 @@ namespace SemiExpression
         string get()
         {
             prevTok = currTok;
+
+            // check if there is more token to extract
+            if (toker.isDone())
+            {
+                currTok = "";
+                return currTok;
+            }
             currTok = toker.getTok().ToString();
+
+
             if (verbose)
             {
                 Console.Write("{0} ", currTok);
@@ -285,7 +297,7 @@ namespace SemiExpression
                 // check if end of line
                 if (currTok == "")
                 {
-                    return false;  // end of file
+                    break;  // end of file
                 }
 
                 // check if comment
@@ -322,8 +334,21 @@ namespace SemiExpression
                 se.Add(semiExp.ToArray());
                 semiExp.Clear();
                 for (int i = 0; i < se.count; ++i)
+                {
                     semiExp.Add(se[i]);
+                }
             }
+
+            // check if the line start with using
+            /*
+            if (semiExp[0] == "using")
+            {
+                // read untill end of the line
+                return (semiExp.Count > 0);
+            }
+            */
+            
+
             return (semiExp.Count > 0);
         }
         //----< get length property >----------------------------------------
@@ -470,6 +495,11 @@ namespace SemiExpression
                 return true;
             }
             return false;
+        }
+
+        public string gotCollection()
+        {
+            throw new NotImplementedException();
         }
     }
 }

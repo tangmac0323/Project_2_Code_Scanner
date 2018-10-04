@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SemiExpression
 {
-    class SemiExpTest
+    class Dev_SemiExpTest
     {
         static void Main(string[] args)
         {
@@ -17,7 +17,7 @@ namespace SemiExpression
             test.returnNewLines = true;
             test.displayNewLines = true;
 
-            string testFile = "../../testSemi.txt";
+            string testFile = "../../SemiExpTest.cs";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
             while (test.getSemi())
@@ -69,7 +69,9 @@ namespace SemiExpression
             Console.Write("\n ----------------------------------\n");
 
             while (semi.getSemi())
+            {
                 semi.display();
+            }
             semi.close();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -8,12 +9,18 @@ namespace Tokenizer
     {
         internal TokenContext context_ { get; set; }  // derived classes store context ref here
 
-        static internal string[] specialPunct = new string[]
-      {
-        "/*", "*/", "//", "!=", "==", ">=", "<=", "&&", "||", "--", "++",
-        "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>",
-        "\\n", "\\t", "\\r", "\\f"
-      };
+        static internal List<string> specialDoublePunct = new List<string>(
+            new string[]{
+                        "/*", "*/", "//", "!=", "==", ">=", "<=", "&&", "||", "--", "++",
+                        "+=", "-=", "*=", "/=", "%=", "&=", "^=", "|=", "<<", ">>",
+                        "\\n", "\\t", "\\r", "\\f"
+                        }
+            );
+
+        static internal List<string> specialSinglePunct = new List<string>(new string[]
+        {
+        "<", ">", "[", "]", "(", ")", "{", "}", ":", "=", "+", "-", "*"
+        });
 
         //----< delegate source opening to context's src >---------------
 
@@ -77,7 +84,7 @@ namespace Tokenizer
                 // check if special punctuation
                 char[] tempCharBuffer = { ch, ch2 };
                 string tempStr = new string(tempCharBuffer);
-                if (isSpecialPunctuation(tempStr))
+                if (isSpecialDoublePunctuation(tempStr))
                 {
                     // check if the comment start
                     if (tempStr.Equals("//"))
@@ -117,12 +124,27 @@ namespace Tokenizer
 
         static private bool isPunctuation(char ch)
         {
-            return (!Char.IsWhiteSpace(ch) && !Char.IsLetterOrDigit(ch));
+            return (!Char.IsWhiteSpace(ch) && !Char.IsLetterOrDigit(ch) || isSpecialSinglePunctuation(ch));
         }
 
-        static private bool isSpecialPunctuation(string ch_comb)
+        static private bool isSpecialDoublePunctuation(string ch_comb)
         {
-            return specialPunct.Contains(ch_comb);
+            return specialDoublePunct.Contains(ch_comb);
+        }
+
+        static private bool isSpecialSinglePunctuation(string ch_comb)
+        {
+            return specialSinglePunct.Contains(ch_comb);
+        }
+
+        static public void setSpecialSingleChars(string ssc)
+        {
+            specialSinglePunct.Add(ssc);
+        }
+
+        static public void setSpecialDoubleChars(string ssc)
+        {
+            specialDoublePunct.Add(ssc);
         }
     }
 }

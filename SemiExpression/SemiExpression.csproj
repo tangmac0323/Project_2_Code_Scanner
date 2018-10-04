@@ -38,10 +38,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITokenCollection.cs" />
     <Compile Include="SemiExpression.cs" />
-    <Compile Include="SemiExpTest.cs" />
+    <Compile Include="Dev_SemiExpTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="test2.txt" />
     <Content Include="testSemi.txt" />
   </ItemGroup>
   <ItemGroup>

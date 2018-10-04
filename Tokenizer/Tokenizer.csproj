@@ -51,7 +51,7 @@
     <Compile Include="TokenSourceFile.cs" />
     <Compile Include="TokenState.cs" />
     <Compile Include="Toker.cs" />
-    <Compile Include="TokerTest.cs" />
+    <Compile Include="Dev_TokerTest.cs" />
     <Compile Include="StatePattern\WhiteSpaceState.cs" />
   </ItemGroup>
   <ItemGroup>

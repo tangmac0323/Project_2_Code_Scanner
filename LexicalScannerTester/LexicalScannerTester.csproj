@@ -37,5 +37,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SemiExpression\SemiExpression.csproj">
+      <Project>{acaaff2a-a093-4f76-ab38-5a99af2296aa}</Project>
+      <Name>SemiExpression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tokenizer\Tokenizer.csproj">
+      <Project>{7b036e14-0274-4c9f-adde-c10544c0e255}</Project>
+      <Name>Tokenizer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Test_SemiExp.cs" />
+    <Compile Include="Test_Tokenizer.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
