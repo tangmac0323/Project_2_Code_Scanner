@@ -310,12 +310,7 @@ namespace SemiExpression
             do
             {
                 get();
-                // check if end of line
-                if (currTok == "")
-                {
-                    break;  // end of file
-                }
-
+                if (currTok == "") { break; }   // end of linea
                 // check if comment
                 if (!discardComments && isComment(currTok))
                 {
@@ -327,24 +322,15 @@ namespace SemiExpression
                 }
                 else if ((currTok == "\r\n") && semiExp.Count >0)
                 {
-                    if (semiExp[0].StartsWith("#"))
-                    {
-                        semiExp.Add(currTok);
-                        break;
-                    }
+                    if (semiExp[0].StartsWith("#")) { semiExp.Add(currTok); break; }
                 }
                 else if (returnNewLines || currTok != "\n")
                 {
                     semiExp.Add(currTok);
                 }
-
                 else { break; }
             } while (!isTerminator(currTok) || count == 0 );
-
-            // if for then append next two semiExps, e.g., for(int i=0; i<se.count; ++i) {
-
             trim();
-
             if (semiExp.Contains("for"))
             {
                 SemiExp se = clone();       // make a copy of the semiExp
@@ -353,10 +339,7 @@ namespace SemiExpression
                 getSemi();
                 se.Add(semiExp.ToArray());
                 semiExp.Clear();
-                for (int i = 0; i < se.count; ++i)
-                {
-                    semiExp.Add(se[i]);
-                }
+                for (int i = 0; i < se.count; ++i) { semiExp.Add(se[i]); }
             } 
             return (semiExp.Count > 0);
         }
