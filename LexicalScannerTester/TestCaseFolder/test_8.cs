@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿///////////////////////////////////////////////////////////////////
+//----< test for for-loop express case >---
 namespace LexicalScannerTester.TestCaseFolder
 {
     class test_8

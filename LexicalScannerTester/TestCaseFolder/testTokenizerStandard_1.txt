@@ -1,0 +1,76 @@
+
+ -- line#   1 : using
+ -- line#   1 : System
+ -- line#   1 : ;
+ -- line#   2 : 
+
+ -- line#   2 : using
+ -- line#   2 : System
+ -- line#   2 : .
+ -- line#   2 : Collections
+ -- line#   2 : .
+ -- line#   2 : Generic
+ -- line#   2 : ;
+ -- line#   3 : 
+
+ -- line#   3 : using
+ -- line#   3 : System
+ -- line#   3 : .
+ -- line#   3 : Linq
+ -- line#   3 : ;
+ -- line#   4 : 
+
+ -- line#   4 : using
+ -- line#   4 : System
+ -- line#   4 : .
+ -- line#   4 : Text
+ -- line#   4 : ;
+ -- line#   5 : 
+
+ -- line#   5 : using
+ -- line#   5 : System
+ -- line#   5 : .
+ -- line#   5 : Threading
+ -- line#   5 : .
+ -- line#   5 : Tasks
+ -- line#   5 : ;
+ -- line#   7 : 
+
+
+ -- line#   7 : namespace
+ -- line#   7 : LexicalScannerTester
+ -- line#   7 : .
+ -- line#   7 : TestCaseFolder
+ -- line#   8 : 
+
+ -- line#   8 : {
+ -- line#   9 : 
+    
+ -- line#   9 : class
+ -- line#   9 : test
+ -- line#   9 : _
+ -- line#   9 : 1
+ -- line#  10 : 
+    
+ -- line#  10 : {
+ -- line#  11 : 
+        
+ -- line#  11 : int
+ -- line#  11 : i
+ -- line#  11 : =
+ -- line#  11 : 0
+ -- line#  11 : ;
+ -- line#  12 : 
+        
+ -- line#  12 : int
+ -- line#  12 : bac
+ -- line#  12 : =
+ -- line#  12 : 123456
+ -- line#  12 : ;
+ -- line#  13 : 
+    
+ -- line#  13 : }
+ -- line#  14 : 
+
+ -- line#  14 : }
+ -- line#  15 : 

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// CppComment class
+// - extracts multi line comment and tailer comment
+
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Tokenizer
 {

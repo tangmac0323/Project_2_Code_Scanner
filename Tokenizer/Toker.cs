@@ -40,13 +40,21 @@
  * Build Process
  * =============
  * Required Files:
- *   Toker.cs
+ *   Toker.cs TokenContext.cs TokenSourceFile.cs
+ *   TokenSourceFile.cs 
+ *   AlphaState.cs  CCOmmentsState.cs
+ *   CppCommentState.cs DoubleState.cs  PuncState.cs
+ *   SingleQuoteState.cs    SpeicalPuncState.cs
+ *   WhiteSpaceState.cs
  * 
  * Compiler Command:
- *   csc /target:exe /define:TEST_CTOKER CToker.cs
+ *   csc /target:exe Toker.cs
  * 
  * Maintenance History
  * ===================
+ * ver 3.0 : 3 Oct 18
+ * - reconstruct class and modify the function ein each class
+ * - revise getTok() function
  * ver 2.9 : 12 Feb 18
  * - fixed bug in extractComment that caused failure to detect tokens
  *   after processing a line ending with a C++ style comment
@@ -188,5 +196,26 @@ namespace Tokenizer
 
         public int lineCount() { return context_.src.lineCount; }
 
+        //----< use to add more special single chars into the checking list >---
+        static public void setSpecialSingleChars(string ssc)
+        {
+            TokenState.specialSinglePunct.Add(ssc);
+        }
+
+        //----< use to add more special double chars into the checking list >---
+        static public void setSpecialDoubleChars(string ssc)
+        {
+            TokenState.specialDoublePunct.Add(ssc);
+        }
+
+        static public void displaySingleCharPunc()
+        {
+            Console.Write("\nCurrent Single Character Punctuation List: " + TokenState.specialSinglePunct.ToString() + "\n");
+        }
+
+        static public void displayDoubleCharPunc()
+        {
+            Console.Write("\nCurrent Double Character Punctuation List: " + TokenState.specialDoublePunct.ToString() + "\n");
+        }
     }
 }

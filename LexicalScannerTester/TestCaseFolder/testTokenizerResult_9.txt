@@ -1,0 +1,49 @@
+
+ -- line#   1 : #
+ -- line#   1 : if
+ -- line#   1 : DEBUG
+ -- line#   3 : 
+
+
+ -- line#   3 : #
+ -- line#   3 : endif
+ -- line#   4 : namespace
+ -- line#   4 : LexicalScannerTester
+ -- line#   4 : .
+ -- line#   4 : TestCaseFolder
+ -- line#   5 : 
+
+ -- line#   5 : {
+ -- line#   6 : 
+    
+ -- line#   6 : class
+ -- line#   6 : test
+ -- line#   6 : _
+ -- line#   6 : 9
+ -- line#   7 : 
+    
+ -- line#   7 : {
+ -- line#   8 : 
+        
+ -- line#   8 : public
+ -- line#   8 : void
+ -- line#   8 : testCase
+ -- line#   8 : (
+ -- line#   8 : )
+ -- line#   9 : 
+        
+ -- line#   9 : {
+ -- line#  10 : 
+            
+ -- line#  10 : return
+ -- line#  10 : ;
+ -- line#  11 : 
+        
+ -- line#  11 : }
+ -- line#  12 : 
+    
+ -- line#  12 : }
+ -- line#  13 : 
+
+ -- line#  13 : }
+ -- line#  14 : 

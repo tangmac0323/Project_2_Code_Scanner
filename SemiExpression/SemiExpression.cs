@@ -40,19 +40,23 @@
  * string show = semi.gotCollection();   // returns tokens as single string
  * semi.returnNewLines = false;       // property defines newline handling
  *                                    //   default is true
+ * semi.gotCollection();                // return the display string
  */
 //
 /*
  * Build Process
  * =============
  * Required Files:
- *   Semi.cs Toker.cs
+ *   SemiExpression.cs ITokenCollection.cs
+ *   Toker.cs
  * 
  * Compiler Command:
- *   csc /target:exe /define:TEST_SEMI Semi.cs Toker.cs
+ *   csc /target:exe Semi.cs Toker.cs
  * 
  * Maintenance History
  * ===================
+ * ver 3.0 : 03 OCT 18
+ * - modify trival function in the class to fetch the output from Toker
  * ver 2.3 : 07 Aug 18
  * - added functions isWhiteSpace and trim
  *   That eliminates whitespace tokens in SemiExp, making them easier to use.

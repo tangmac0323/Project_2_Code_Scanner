@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿///////////////////////////////////////////////////////////////////
+//----< test for single line comment tokens >---
 namespace LexicalScannerTester.TestCaseFolder
 {
     class test_2

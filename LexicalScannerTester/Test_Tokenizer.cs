@@ -1,19 +1,28 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////
+//  TokenizerTester
+// - provide test function for each test case
+using System;
 using System.IO;
 using System.Text;
 using Tokenizer;
 
 namespace LexicalScannerTester
 {
-    class Test_Tokenizer
+    public class Test_Tokenizer
     {
         static string testCaseFileName = "TestCaseFolder/test_";
-        static string testCaseResult = "TestCaseFolder/testResult_";
-        static string testCaseResultStandard = "TestCaseFolder/testStandard_";
+        static string testCaseResult = "TestCaseFolder/testTokenizerResult_";
 
-        /*
-#if (TEST_Tokenizer)
-        static void Main(string[] args){
+
+        static string testCaseResultStandard = "TestCaseFolder/testTokenizerStandard_";
+
+        public Test_Tokenizer()
+        {
+            return;
+        }
+
+        // public function include each test function
+        public void TokenizerTester() { 
             // test_1
             if (!requirement_1()){
                 Console.Write("\n  Testing Result: Failed\n");
@@ -95,8 +104,9 @@ namespace LexicalScannerTester
                 Console.Write("\n  Testing Result: Passed\n");
             } 
         }
-#endif
-*/
+//#endif
+
+
         //----< test for alphanumeric tokens >---
         static private bool requirement_1(int testIndex = 1)
         {
@@ -173,20 +183,24 @@ namespace LexicalScannerTester
         //----< compare two txt files >---
         static private bool compareTwoFiles(string fileName_1, string fileName_2)
         {
-            using (StreamReader li = new StreamReader(fileName_1))
-            using (StreamReader li2 = new StreamReader(fileName_2))
+            StreamReader li = new StreamReader(fileName_1);
+            StreamReader li2 = new StreamReader(fileName_2);
+            while (true)
             {
-                while (true)
+                if (li.EndOfStream || li2.EndOfStream)
+                    break;
+                string liTxt = li.ReadLine();
+                string li2Txt = li2.ReadLine();
+                if (!liTxt.Equals(li2Txt))
                 {
-                    if (li.EndOfStream || li2.EndOfStream)
-                        break;
-                    string liTxt = li.ReadLine();
-                    string li2Txt = li2.ReadLine();
-                    if (!liTxt.Equals(li2Txt))
-                        return false;
+                    li.Close();
+                    li2.Close();
+                    return false;
+
                 }
             }
-
+            li.Close();
+            li2.Close();
             return true;
         }
 
@@ -194,11 +208,12 @@ namespace LexicalScannerTester
         static private bool testTokenizer(int testIndex)
         {
             Toker toker = new Toker();
-            StreamWriter file = new StreamWriter("../../" + testCaseResult + testIndex + ".txt");
+            StreamWriter file = new StreamWriter("../../" + testCaseResult + testIndex + ".txt");   // read from the testcase cs file
 
-            string fqf = System.IO.Path.GetFullPath("../../" + testCaseResult + testIndex + ".txt");
+            string fqf = System.IO.Path.GetFullPath("../../" + testCaseFileName + testIndex + ".cs");   // open the write to file
             if (!toker.open(fqf))
             {
+                file.Close();
                 Console.Write("\n can't open {0}\n", fqf);
                 return false;
             }
@@ -207,18 +222,26 @@ namespace LexicalScannerTester
                 Console.Write("\n  processing file: {0}", fqf);
             }
 
+            // write token into the output file untill eof
             while (!toker.isDone())
             {
                 StringBuilder tok = toker.getTok();
                 file.Write("\n -- line#{0, 4} : {1}", toker.lineCount(), tok);
             }
             toker.close();
+            file.Close();
 
-            // compare the two file
+            return compareTwoFiles("../../" + testCaseResult + testIndex + ".txt", "../../" + testCaseResultStandard + testIndex + ".txt");
+        }
 
-            return true;
+        static public void addSingleCharToken(string a)
+        {
+            Toker.setSpecialSingleChars(a);
+        }
 
-            //return compareTwoFiles(testCaseResult + testIndex + ".txt", testCaseResultStandard + testIndex + ".txt");
+        static public void addDoubleCharToken(string a)
+        {
+            Toker.setSpecialDoubleChars(a);
         }
     }
 }

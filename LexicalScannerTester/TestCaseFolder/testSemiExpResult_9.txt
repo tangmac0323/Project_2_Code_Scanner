@@ -1,0 +1,8 @@
+# if DEBUG # endif namespace LexicalScannerTester . TestCaseFolder 
+{ 
+class test _ 9 { 
+public void testCase ( ) { 
+return ; 
+} 
+} 
+} 

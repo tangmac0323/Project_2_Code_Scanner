@@ -107,6 +107,7 @@ namespace Tokenizer
             return specialSinglePunct.Contains(ch_comb.ToString());
         }
 
+        /*
         //----< use to add more special single chars into the checking list >---
         static public void setSpecialSingleChars(string ssc)
         {
@@ -118,5 +119,6 @@ namespace Tokenizer
         {
             specialDoublePunct.Add(ssc);
         }
+        */
     }
 }

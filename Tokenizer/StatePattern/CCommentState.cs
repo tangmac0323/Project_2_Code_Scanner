@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// CComment class
+// - extracts single line comment and tailer comment
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Tokenizer
 {

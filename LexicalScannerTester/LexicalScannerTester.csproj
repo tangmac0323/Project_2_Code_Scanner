@@ -57,6 +57,7 @@
     <Compile Include="TestCaseFolder\test_6.cs" />
     <Compile Include="TestCaseFolder\test_7.cs" />
     <Compile Include="TestCaseFolder\test_9.cs" />
+    <Compile Include="Tester.cs" />
     <Compile Include="Test_SemiExp.cs" />
     <Compile Include="Test_Tokenizer.cs" />
   </ItemGroup>

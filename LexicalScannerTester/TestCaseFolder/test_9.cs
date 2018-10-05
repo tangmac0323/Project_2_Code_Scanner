@@ -1,6 +1,8 @@
-﻿#if DEBUG
+﻿///////////////////////////////////////////////////////////////////
+//----< test for # start with express case >---
+#if DEBUG
 
-#endif 
+#endif
 namespace LexicalScannerTester.TestCaseFolder
 {
     class test_9

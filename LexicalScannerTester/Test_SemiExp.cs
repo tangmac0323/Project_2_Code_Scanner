@@ -1,17 +1,26 @@
-﻿using SemiExpression;
+﻿///////////////////////////////////////////////////////////////////
+//  SemiExpTester
+// - provide test function for each test case
+using SemiExpression;
 using System;
 using System.IO;
 
 namespace LexicalScannerTester
 {
-    class Test_SemiExp
+    public class Test_SemiExp
     {
         static string testCaseFileName = "TestCaseFolder/test_";
-        static string testCaseResult = "TestCaseFolder/testResult_";
-        static string testCaseResultStandard = "TestCaseFolder/testStandard_";
+        static string testCaseResult = "TestCaseFolder/testSemiExpResult_";
+        static string testCaseResultStandard = "TestCaseFolder/testSemiExpStandard_";
 
-//#if (TEST_SemiExpression)
-        static void Main(string[] args){
+        public Test_SemiExp()
+        {
+            return;
+        }
+
+        // public function include each test function
+        public void SemiExpTester()
+        {
             // test_1
             if (!requirement_1()){
                 Console.Write("\n  Testing Result: Failed\n");
@@ -93,7 +102,7 @@ namespace LexicalScannerTester
                 Console.Write("\n  Testing Result: Passed\n");
             }
         }
-//#endif
+
         //----< test for alphanumeric tokens >---
         static private bool requirement_1(int testIndex = 1)
         {
@@ -170,9 +179,8 @@ namespace LexicalScannerTester
         //----< compare two txt files >---
         static private bool compareTwoFiles(string fileName_1, string fileName_2)
         {
-            using (StreamReader li = new StreamReader(fileName_1))
-            using (StreamReader li2 = new StreamReader(fileName_2))
-            {
+            StreamReader li = new StreamReader(fileName_1);
+            StreamReader li2 = new StreamReader(fileName_2);
                 while (true)
                 {
                     if (li.EndOfStream || li2.EndOfStream)
@@ -180,10 +188,15 @@ namespace LexicalScannerTester
                     string liTxt = li.ReadLine();
                     string li2Txt = li2.ReadLine();
                     if (!liTxt.Equals(li2Txt))
+                    {
+                        li.Close();
+                        li2.Close();
                         return false;
-                }
-            }
 
+                    }
+                }
+            li.Close();
+            li2.Close();
             return true;
         }
 
@@ -195,28 +208,29 @@ namespace LexicalScannerTester
             test.returnNewLines = true;
             test.displayNewLines = true;
 
-            string testFile = "../../" + testCaseFileName + "1.cs";
+            // open testfile
+            string testFile = "../../" + testCaseFileName + + testIndex + ".cs";
             if (!test.open(testFile))
             {
-                Console.Write("\n  Can't open file {0}", testFile);
+                Console.Write(format: "\n  Can't open file {0}", arg0: testFile);
             }
+
+            // open output file
+            StreamWriter file = new StreamWriter("../../" + testCaseResult + testIndex + ".txt");
+
+            // loop untill output all of the semiexpression
             while (test.getSemi())
             {
                 if (test.gotCollection() != "")
                 {
-                    //test.writeToFile(testCaseResult + testIndex + ".txt");
-                    //test.display();
-                    StreamWriter file = new StreamWriter("../../" + testCaseResult + testIndex + ".txt");
-
-                    //string fqf = System.IO.Path.GetFullPath("../../" + testCaseResult + testIndex + ".txt");
-
-                    file.Write(test.gotCollection());
+                    file.WriteLine(test.gotCollection());
                 }
             }
 
+            file.Close();
+
             // compare with the standard
-            return true;
-            //return compareTwoFiles(testCaseResult + testIndex + ".txt", testCaseResultStandard + testIndex + ".txt");
+            return compareTwoFiles("../../" + testCaseResult + testIndex + ".txt", "../../" + testCaseResultStandard + testIndex + ".txt");
         }
     }
 }

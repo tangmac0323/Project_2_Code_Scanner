@@ -41,11 +41,6 @@
     <Compile Include="ITokenCollection.cs" />
     <Compile Include="SemiExpression.cs" />
     <Compile Include="Dev_Debug_SemiExpTest.cs" />
-    <Compile Include="test3.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="test2.txt" />
-    <Content Include="testSemi.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tokenizer\Tokenizer.csproj">
