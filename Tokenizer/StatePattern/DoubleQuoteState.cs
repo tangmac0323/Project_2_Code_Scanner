@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿///////////////////////////////////////////////////////////////////
+// DoubleQuote class
+// - extracts double quoted chars as a token
+using System.Text;
 
 namespace Tokenizer
 {

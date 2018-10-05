@@ -1,5 +1,8 @@
-﻿using System.Text;
+﻿///////////////////////////////////////////////////////////////////
+// ITokenState interface
+// - Declares operations expected of any token gathering state
 
+using System.Text;
 
 namespace Tokenizer
 {

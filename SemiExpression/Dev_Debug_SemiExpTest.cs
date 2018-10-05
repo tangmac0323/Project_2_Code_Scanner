@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿///////////////////////////////////////////////////////////////////
+// Dev_SemiExpression
+// - Only used during the development process
+
+using System;
 
 namespace SemiExpression
 {
-    class Dev_SemiExpTest
+    class Dev_Debug_SemiExpTest
     {
+        private bool DEV_DEBUG = false;
+
+#if DEV_DEBUG == ture
+
         static void Main(string[] args)
         {
             Console.Write("\n  Testing semiExp Operations");
@@ -17,14 +21,15 @@ namespace SemiExpression
             test.returnNewLines = true;
             test.displayNewLines = true;
 
-            string testFile = "../../SemiExpTest.cs";
+            string testFile = "../../Dev_SemiExpTest.cs";
+            //string testFile = "../../test3.cs";
             if (!test.open(testFile))
                 Console.Write("\n  Can't open file {0}", testFile);
             while (test.getSemi())
             {
-                if (test.displayStr() != "")
+                if (test.gotCollection() != "")
                 {
-                    test.display();
+                    //test.display();
                 }
             }
 
@@ -74,5 +79,6 @@ namespace SemiExpression
             }
             semi.close();
         }
+#endif
     }
 }

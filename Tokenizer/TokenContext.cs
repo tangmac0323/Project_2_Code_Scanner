@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿///////////////////////////////////////////////////////////////////
+// TokenContext class
+// - holds all the tokenizer states
+// - holds source of tokens
+// - internal qualification limits access to this assembly
 namespace Tokenizer
 {
     class TokenContext

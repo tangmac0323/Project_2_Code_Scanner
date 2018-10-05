@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// SingleQuote class
+// - extracts single quoted chars as a token
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Tokenizer
 {

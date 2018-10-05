@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// WhiteSpaceState class
+// - extracts contiguous whitespace chars as a token
+// - will be thrown away by tokenizer
+
+using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Tokenizer
 {

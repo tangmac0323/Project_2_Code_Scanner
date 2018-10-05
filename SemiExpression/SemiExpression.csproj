@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ACAAFF2A-A093-4F76-AB38-5A99AF2296AA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>SemiExpression</RootNamespace>
     <AssemblyName>SemiExpression</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -40,7 +40,8 @@
   <ItemGroup>
     <Compile Include="ITokenCollection.cs" />
     <Compile Include="SemiExpression.cs" />
-    <Compile Include="Dev_SemiExpTest.cs" />
+    <Compile Include="Dev_Debug_SemiExpTest.cs" />
+    <Compile Include="test3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="test2.txt" />

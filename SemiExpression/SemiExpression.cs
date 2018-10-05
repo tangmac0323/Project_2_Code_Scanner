@@ -37,7 +37,7 @@
  * semi.Add(tok);                     // appends token
  * semi.Add(tokArray);                // appends array of tokens
  * semi.display();                    // sends tokens to Console
- * string show = semi.displayStr();   // returns tokens as single string
+ * string show = semi.gotCollection();   // returns tokens as single string
  * semi.returnNewLines = false;       // property defines newline handling
  *                                    //   default is true
  */
@@ -63,7 +63,7 @@
  * ver 2.0 : 05 Sep 11
  * - Converted to new C# property syntax
  * - Converted from untyped ArrayList to generic List<string>
- * - Simplified display() and displayStr()
+ * - Simplified display() and gotCollection()
  * - Added new tests in test stub
  * ver 1.9 : 27 Sep 08
  * - Changed comments on manual page to say that semi.ReturnNewLines is true by default
@@ -109,6 +109,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Tokenizer;
 
@@ -213,6 +214,8 @@ namespace SemiExpression
                     if (this.FindFirst("#") != -1)  // expensive - may wish to cache in get
                         return true;
                     return false;
+                //case "/r/n":
+                    //return true;
                 default: return false;
             }
         }
@@ -272,7 +275,17 @@ namespace SemiExpression
         public bool isWhiteSpace(string tok)
         {
             Char ch = tok[0];
-            return Char.IsWhiteSpace(tok[0]);
+            /*
+            if (tok.Length > 1)
+            {
+                return (Char.IsWhiteSpace(tok[0]) || !tok[1].Equals('\n'));
+            }
+            else
+            {
+                return (Char.IsWhiteSpace(tok[0]));
+            }
+            */
+            return (Char.IsWhiteSpace(tok[0]));
         }
 
         public void trim()
@@ -293,7 +306,6 @@ namespace SemiExpression
             do
             {
                 get();
-
                 // check if end of line
                 if (currTok == "")
                 {
@@ -304,21 +316,25 @@ namespace SemiExpression
                 if (!discardComments && isComment(currTok))
                 {
                     semiExp.Add(currTok);
-                    //break;
                 }
                 else if (discardComments && isComment(currTok))
                 {
-                    //semiExp.Add(currTok);
                     return true;
+                }
+                else if ((currTok == "\r\n") && semiExp.Count >0)
+                {
+                    if (semiExp[0].StartsWith("#"))
+                    {
+                        semiExp.Add(currTok);
+                        break;
+                    }
                 }
                 else if (returnNewLines || currTok != "\n")
                 {
                     semiExp.Add(currTok);
                 }
-                else
-                {
-                    break;
-                }
+
+                else { break; }
             } while (!isTerminator(currTok) || count == 0 );
 
             // if for then append next two semiExps, e.g., for(int i=0; i<se.count; ++i) {
@@ -337,18 +353,7 @@ namespace SemiExpression
                 {
                     semiExp.Add(se[i]);
                 }
-            }
-
-            // check if the line start with using
-            /*
-            if (semiExp[0] == "using")
-            {
-                // read untill end of the line
-                return (semiExp.Count > 0);
-            }
-            */
-            
-
+            } 
             return (semiExp.Count > 0);
         }
         //----< get length property >----------------------------------------
@@ -419,17 +424,27 @@ namespace SemiExpression
         public void display()
         {
             Console.Write("\n -- ");
-            Console.Write(displayStr());
+            Console.Write(gotCollection());
         }
-        //----< return display string >--------------------------------------
 
-        public string displayStr()
+        //----< output semiExpression as txt file >--------------------------
+        /*
+        public void writeToFile(string filePath)
+        {
+            StreamWriter file = new StreamWriter("../../" + testCaseResult + testIndex + ".txt");
+            System.IO.File.WriteAllText("../../" + filePath, gotCollection());
+        }
+        */
+
+        //----< return display string >--------------------------------------
+        // implemented
+        public string gotCollection()
         {
             StringBuilder disp = new StringBuilder("");
             foreach (string tok in semiExp)
             {
                 disp.Append(tok);
-                if (tok.IndexOf('\n') != tok.Length - 1)
+                if (tok.IndexOf("\n") != tok.Length - 1)
                     disp.Append(" ");
             }
             return disp.ToString();
@@ -497,10 +512,6 @@ namespace SemiExpression
             return false;
         }
 
-        public string gotCollection()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
     //

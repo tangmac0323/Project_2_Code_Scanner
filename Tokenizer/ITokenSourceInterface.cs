@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿///////////////////////////////////////////////////////////////////
+// ITokenSource interface
+// - Declares operations expected of any source of tokens
+// - Typically we would use either files or strings.  This demo
+//   provides a source only for Files, e.g., TokenFileSource, below.
 
 namespace Tokenizer
 {

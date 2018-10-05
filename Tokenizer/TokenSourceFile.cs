@@ -1,9 +1,15 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////
+// TokenSourceFile class
+// - extracts integers from token source
+// - Streams often use terminators that can't be represented by
+//   a character, so we collect all elements as ints
+// - keeps track of the line number where a token is found
+// - uses StreamReader which correctly handles byte order mark
+//   characters and alternate text encodings.
+
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tokenizer
 {
@@ -100,20 +106,6 @@ namespace Tokenizer
                 return charQ_[n];   // now return the last peeked
             }
         }
-
-
-        /*
-        public string peekLine()
-        {
-            string line = fs_.ReadLine();
-            if (line == null)
-            {
-                return null;
-            }
-
-            return line;
-        }
-        */
 
         //----< reached the end of the file stream? >--------------------
 

@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// Dev_Toker
+// - Only used during the development process
+
+using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Tokenizer
 {
 
-    class Dev_TokerTest
+    class Dev_Debug_TokerTest
     {
+        private bool DEV_DEBUG = false;  // variable to control the debug mode
+
+
         static bool testToker(string path)
         {
             Toker toker = new Toker();
@@ -31,8 +35,9 @@ namespace Tokenizer
             toker.close();
             return true;
         }
-        
-        
+
+#if DEV_DEBUG == true
+
         static void Main(string[] args)
         {
             Console.Write("\n  Demonstrate Toker class");
@@ -56,6 +61,7 @@ namespace Tokenizer
 
             Console.Write("\n\n");
         }
-        
+#endif
+
     }
 }

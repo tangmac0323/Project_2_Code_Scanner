@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// AlphaState class
+// - extracts contiguous letter and digit chars as a token
+
+using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Tokenizer
 {

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿///////////////////////////////////////////////////////////////////
+// ITokenSource interface
+// - Declares operations expected of any source of semi
+
 
 namespace SemiExpression
 {

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿///////////////////////////////////////////////////////////////////
+// SpecialPunctState class
+// - extracts double punctuation char as a token
+
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Tokenizer
 {
