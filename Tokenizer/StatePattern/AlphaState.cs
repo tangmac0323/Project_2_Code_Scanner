@@ -21,7 +21,7 @@ namespace Tokenizer
             if (nextItem < 0)
                 return false;
             char ch = (char)nextItem;
-            return Char.IsLetterOrDigit(ch);
+            return (Char.IsLetterOrDigit(ch) || ch.Equals('_'));
         }
         //----< keep extracting until get none-alpha >-------------------
 

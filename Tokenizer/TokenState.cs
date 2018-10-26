@@ -48,7 +48,7 @@ namespace Tokenizer
             if (Char.IsWhiteSpace(ch)) { return context.whiteSpaceState_; }
            
             // check alpha
-            if (Char.IsLetterOrDigit(ch)) { return context.alphaState_; }
+            if (Char.IsLetterOrDigit(ch) || ch.Equals('_')) { return context.alphaState_; }
 
 
             // check if single quoted
